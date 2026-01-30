@@ -1,5 +1,8 @@
 <template>
   <div class="formulario">
+    <label for="id">Id</label>
+    <input id="id" v-model="id" type="number" />
+
     <label for="id_nombre">Nombre</label>
     <input id="id_nombre" v-model="estudiante.nombre" type="text" />
     <label for="id_apellido">Apellido</label>
@@ -11,15 +14,16 @@
     <label for="id_provincia">Provincia</label>
     <input id="id_provincia" v-model="estudiante.provincia" type="text" />
   </div>
-  <button @:click="guardar(estudiante)">guardar</button>
+  <button @:click="actualizarParcial(estudiante)">Actualizar</button>
 </template>
 
 <script>
-import { guardarFachada } from "../clients/Matriculaclient.js";
+import { actualizarParcialFachada } from "../clients/Matriculaclient.js";
 
 export default {
   data() {
     return {
+      id: 0,
       estudiante: {
         nombre: "",
         apellido: "",
@@ -30,12 +34,13 @@ export default {
     };
   },
   methods: {
-    guardar(estudiante) {
-      guardarFachada(estudiante);
+    actualizarParcial(id, estudiante) {
+      actualizarParcialFachada(id, estudiante);
     },
   },
 };
 </script>
+
 
 
 <style scoped>
