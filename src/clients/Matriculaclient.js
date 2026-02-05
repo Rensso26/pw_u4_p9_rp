@@ -4,6 +4,7 @@ import {obtenertokenFachada} from "../clients/AuthorizationClient.js";
 const URL = "http://localhost:3456/matricula/api/v1.0/estudiantes";
 const auth = await obtenertokenFachada();
 const token = auth.accessToken;
+console.log(token)
 
 
 
@@ -28,15 +29,14 @@ const guardar = async (body) => {
 }
 
 const actualizar = async (id, body) => {
-    await axios.put(URL + `/${id}`, body,{ headers: { Authorization: `Bearer ${token} ` } }).then(r => r.data);
-    console.log(body)
-    return body
+    const response = await axios.put(URL + `/${id}`, body,{ headers: { Authorization: `Bearer ${token} ` } }).then(r => r.data);
+    return response
 }
 
 const actualizarParcial = async (id, body) => {
-    await axios.patch(URL + `/${id}`, body,{ headers: { Authorization: `Bearer ${token} ` } }).then(r => r.data);
+    const response = await axios.patch(URL + `/${id}`, body,{ headers: { Authorization: `Bearer ${token} ` } }).then(r => r.data);
     console.log(body)
-    return body
+    return response
 }
 
 

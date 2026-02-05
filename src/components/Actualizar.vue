@@ -22,9 +22,8 @@ import { actualizarFachada } from "../clients/Matriculaclient.js";
 export default {
   data() {
     return {
-      ides: 0,
+      ides: 0, 
       estudiante: {
-        id: 0,
         nombre: "",
         apellido: "",
         fechaNacimiento: "",
@@ -34,10 +33,9 @@ export default {
     };
   },
   methods: {
-    actualizar(id, estudiante) {
+    async actualizar(id, estudiante) {
       estudiante.id = id;
-      console.log(id, estudiante);
-      actualizarFachada(id, estudiante);
+        await actualizarFachada(id, estudiante);
     },
   },
 };

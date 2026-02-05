@@ -25,11 +25,11 @@ export default {
     return {
       id: 0,
       estudiante: {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        genero: "",
-        provincia: "",
+        nombre: null,
+        apellido: null,
+        fechaNacimiento: null,
+        genero: null,
+        provincia: null,
       },
     };
   },
