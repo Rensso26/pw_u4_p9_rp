@@ -1,7 +1,7 @@
 <template>
   <div class="formulario">
     <label for="id">Id</label>
-    <input id="id" v-model="id" type="number" />
+    <input id="id" v-model="ides" type="number" />
     <label for="id_nombre">Nombre</label>
     <input id="id_nombre" v-model="estudiante.nombre" type="text" />
     <label for="id_apellido">Apellido</label>
@@ -13,7 +13,7 @@
     <label for="id_provincia">Provincia</label>
     <input id="id_provincia" v-model="estudiante.provincia" type="text" />
   </div>
-  <button @:click="actualizar(estudiante)">Actualizar</button>
+  <button @:click="actualizar(ides, estudiante)">Actualizar</button>
 </template>
 
 <script>
@@ -22,8 +22,9 @@ import { actualizarFachada } from "../clients/Matriculaclient.js";
 export default {
   data() {
     return {
-      id: 0,
+      ides: 0,
       estudiante: {
+        id: 0,
         nombre: "",
         apellido: "",
         fechaNacimiento: "",
@@ -34,6 +35,8 @@ export default {
   },
   methods: {
     actualizar(id, estudiante) {
+      estudiante.id = id;
+      console.log(id, estudiante);
       actualizarFachada(id, estudiante);
     },
   },

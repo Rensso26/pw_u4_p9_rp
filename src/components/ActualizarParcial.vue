@@ -14,7 +14,7 @@
     <label for="id_provincia">Provincia</label>
     <input id="id_provincia" v-model="estudiante.provincia" type="text" />
   </div>
-  <button @:click="actualizarParcial(estudiante)">Actualizar</button>
+  <button @:click="actualizarParcial(id, estudiante)">Actualizar</button>
 </template>
 
 <script>
