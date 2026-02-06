@@ -11,7 +11,17 @@ const obtenertoken = async () => {
     return data
 }
 
+const obtenertokenlogin = async (us, ps) => {
+    const data = await axios.get(URL + `/token?user=${us}&password=${ps}`).then(r => r.data);
+    return data
+}
+
 export async function obtenertokenFachada() {
     const data = await obtenertoken();
     return data
 } 
+
+export async function obtenertokenloginFachada(us, ps) {
+    const data = await obtenertokenlogin(us, ps);
+    return data
+}
